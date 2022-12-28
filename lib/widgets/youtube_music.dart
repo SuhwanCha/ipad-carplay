@@ -14,19 +14,19 @@ class YoutubeMusic extends StatelessWidget {
         alignment: Alignment.center,
         children: [
           Positioned.fill(
-            child: Container(
+            child: DecoratedBox(
               decoration: const BoxDecoration(
                 image: DecorationImage(
                   image: NetworkImage(
-                      'https://lh3.googleusercontent.com/XbfeZvJWWdz3-Pmgihrfdho-P7T_h9XMv9RqMyTCqoetrDfNQnOOlmP8eFrN3-FfbJ2aNwGdK3Am12Iy=w544-h544-s-l90-rj'),
+                    'https://lh3.googleusercontent.com/XbfeZvJWWdz3-Pmgihrfdho-P7T_h9XMv9RqMyTCqoetrDfNQnOOlmP8eFrN3-FfbJ2aNwGdK3Am12Iy=w544-h544-s-l90-rj',
+                  ),
                   fit: BoxFit.cover,
                 ),
               ),
               child: BackdropFilter(
-                filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
-                child: Container(
-                  decoration:
-                      BoxDecoration(color: Colors.black.withOpacity(0.0)),
+                filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+                child: DecoratedBox(
+                  decoration: BoxDecoration(color: Colors.black.withOpacity(0)),
                 ),
               ),
             ),
@@ -36,7 +36,6 @@ class YoutubeMusic extends StatelessWidget {
             width: double.infinity,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Image.network(
                   'https://lh3.googleusercontent.com/XbfeZvJWWdz3-Pmgihrfdho-P7T_h9XMv9RqMyTCqoetrDfNQnOOlmP8eFrN3-FfbJ2aNwGdK3Am12Iy=w544-h544-s-l90-rj',
@@ -44,7 +43,7 @@ class YoutubeMusic extends StatelessWidget {
                 ),
                 const SizedBox(height: 20),
                 Text(
-                  "Beethoven: Piano Concerto No. 5 in E-Flat Major, Op. 73 \"Emperor\" - 1. Allegro (Live)",
+                  'Beethoven: Piano Concerto No. 5 in E-Flat Major, Op. 73 "Emperor" - 1. Allegro (Live)',
                   style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                         fontWeight: FontWeight.w500,
                       ),
@@ -53,7 +52,7 @@ class YoutubeMusic extends StatelessWidget {
                 ),
                 const SizedBox(height: 10),
                 Text(
-                  "Krystian Zimerman • Beethoven: Piano Concerto No.5 • 1989",
+                  'Krystian Zimerman • Beethoven: Piano Concerto No.5 • 1989',
                   style: Theme.of(context).textTheme.bodySmall,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
