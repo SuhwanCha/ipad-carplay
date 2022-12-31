@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ipad_carplay/map_bloc/map_bloc.dart';
+import 'package:ipad_carplay/screens/now_playing_widget.dart';
 import 'package:ipad_carplay/widgets/kakao_navi.dart';
-
 import 'package:ipad_carplay/widgets/search.dart';
+import 'package:nowplaying/nowplaying.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    NowPlaying.instance.start(resolveImages: true);
+
     return Scaffold(
       body: Stack(
         children: [
@@ -17,9 +20,9 @@ class HomeScreen extends StatelessWidget {
             children: [
               Expanded(
                 child: Row(
-                  children: const [
-                    SizedBox(
-                      width: 900,
+                  children: [
+                    const SizedBox(
+                      width: 850,
                       height: 740,
                       child: Padding(
                         padding: EdgeInsets.all(16),
@@ -29,7 +32,13 @@ class HomeScreen extends StatelessWidget {
                         ),
                       ),
                     ),
-                    // YoutubeMusic(),
+                    Expanded(
+                      // child: YoutubeMusic(),
+                      child: SizedBox(
+                        height: double.infinity,
+                        child: NowPlayingWidget(),
+                      ),
+                    ),
                   ],
                 ),
               ),

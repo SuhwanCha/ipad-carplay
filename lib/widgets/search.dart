@@ -65,60 +65,62 @@ class _SearchWidgetState extends State<SearchWidget> {
             onChanged: _onSearchChanged,
           ),
         ),
-        Container(
-          width: 400,
-          height: 400,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
+        if (_pois.isNotEmpty)
+          Container(
+            width: 400,
+            height: 400,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              color: Theme.of(context).primaryColor.withOpacity(0.8),
+            ),
+            child: ListView.builder(
+              itemCount: _pois.length,
+              itemBuilder: (BuildContext context, int index) {
+                return GestureDetector(
+                  onTap: () async {
+                    final bloc = context.read<NaviBloc>();
+                    final location = await Geolocator.getCurrentPosition();
+
+                    bloc.add(
+                      NaviGuideStarted(
+                        name: _pois[index].name!,
+                        lng: double.parse(_pois[index].frontLon!),
+                        lat: double.parse(_pois[index].frontLat!),
+                        address: _pois[index].roadName!,
+                        startLat: location.latitude,
+                        startLng: location.longitude,
+                      ),
+                    );
+
+                    // ignore: inference_failure_on_instance_creation
+                    await Future.delayed(const Duration(milliseconds: 300));
+
+                    bloc.add(
+                      NaviGuideStarted(
+                        name: _pois[index].name!,
+                        lng: double.parse(_pois[index].frontLon!),
+                        lat: double.parse(_pois[index].frontLat!),
+                        address: _pois[index].roadName!,
+                        startLat: location.latitude,
+                        startLng: location.longitude,
+                      ),
+                    );
+
+                    _controller.value = TextEditingValue.empty;
+                    FocusScope.of(context).requestFocus(FocusNode());
+
+                    setState(() {
+                      _pois = [];
+                    });
+                  },
+                  child: ListTile(
+                    title: Text(_pois[index].name!),
+                    subtitle: Text(_pois[index].roadName!),
+                  ),
+                );
+              },
+            ),
           ),
-          child: ListView.builder(
-            itemCount: _pois.length,
-            itemBuilder: (BuildContext context, int index) {
-              return GestureDetector(
-                onTap: () async {
-                  final bloc = context.read<NaviBloc>();
-                  final location = await Geolocator.getCurrentPosition();
-
-                  bloc.add(
-                    NaviGuideStarted(
-                      name: _pois[index].name!,
-                      lng: double.parse(_pois[index].frontLon!),
-                      lat: double.parse(_pois[index].frontLat!),
-                      address: _pois[index].roadName!,
-                      startLat: location.latitude,
-                      startLng: location.longitude,
-                    ),
-                  );
-
-                  // ignore: inference_failure_on_instance_creation
-                  await Future.delayed(const Duration(milliseconds: 200));
-
-                  bloc.add(
-                    NaviGuideStarted(
-                      name: _pois[index].name!,
-                      lng: double.parse(_pois[index].frontLon!),
-                      lat: double.parse(_pois[index].frontLat!),
-                      address: _pois[index].roadName!,
-                      startLat: location.latitude,
-                      startLng: location.longitude,
-                    ),
-                  );
-
-                  _controller.value = TextEditingValue.empty;
-                  FocusScope.of(context).requestFocus(FocusNode());
-
-                  setState(() {
-                    _pois = [];
-                  });
-                },
-                child: ListTile(
-                  title: Text(_pois[index].name!),
-                  subtitle: Text(_pois[index].roadName!),
-                ),
-              );
-            },
-          ),
-        ),
       ],
     );
   }

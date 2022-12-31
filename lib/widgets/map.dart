@@ -67,6 +67,7 @@ class _MapViewState extends State<MapView> {
       controller: _controller,
       options: NaverMapOptions(
         mapType: MapType.navi,
+        initLocationTrackingMode: LocationTrackingMode.follow,
         nightModeEnabled: true,
         initialCameraPosition: CameraPosition(
           target: _currentPosition == null

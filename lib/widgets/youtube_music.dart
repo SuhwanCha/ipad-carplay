@@ -7,9 +7,7 @@ class YoutubeMusic extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: MediaQuery.of(context).size.width * 0.4,
-      height: double.infinity,
+    return SizedBox.expand(
       child: Stack(
         alignment: Alignment.center,
         children: [

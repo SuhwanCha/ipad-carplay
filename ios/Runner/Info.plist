@@ -78,6 +78,8 @@
 	</array>
 		<key>NSMicrophoneUsageDescription</key>
 	<string>... explain why the app uses the microphone here ...</string>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>We need this to show you what's currently playing</string>
 
 	</dict>
 </plist>
