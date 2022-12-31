@@ -29,6 +29,7 @@ class _SearchWidgetState extends State<SearchWidget> {
                 borderSide: BorderSide.none,
               ),
             ),
+            onChanged: print,
           ),
         ),
         Container(
