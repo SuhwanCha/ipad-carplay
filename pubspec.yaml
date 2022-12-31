@@ -38,7 +38,11 @@ dependencies:
   flutter_mpmediaplayer: ^0.2.0
   flutter_naver_map:
     git: https://github.com/SuhwanCha/flutter_naver_map.git
+  flutter_tmap_models:
+    git: https://github.com/SuhwanCha/flutter-tmap-models.git
   geolocator: ^9.0.2
+  kakaonavi:
+    path: ../kakaonavi
   meta: ^1.8.0
   proj4dart: ^2.1.0
   very_good_analysis: ^3.1.0

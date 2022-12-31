@@ -49,7 +49,7 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-		<key>NSAppTransportSecurity</key>
+	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
@@ -68,11 +68,16 @@
 			</dict>
 		</dict>
 	</dict>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>NSLocationWhenInUseUsageDescription</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>NSLocationWhenInUseUsageDescription</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>asda</string>
-</dict>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>location</string>
+	</array>
+		<key>NSMicrophoneUsageDescription</key>
+	<string>... explain why the app uses the microphone here ...</string>
+
+	</dict>
 </plist>

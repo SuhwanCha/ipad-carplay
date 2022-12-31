@@ -14,6 +14,12 @@ PODS:
     - NMapsMap
   - geolocator_apple (1.2.0):
     - Flutter
+  - kakaonavi (0.0.1):
+    - Flutter
+    - KNSDK-UI
+  - KNSDK-UI (1.6.5):
+    - LocationCocoaPod (= 1.2.22)
+  - LocationCocoaPod (1.2.22)
   - NMapsMap (3.16.0)
   - OrderedSet (5.0.0)
   - permission_handler_apple (9.0.4):
@@ -25,10 +31,13 @@ DEPENDENCIES:
   - flutter_mpmediaplayer (from `.symlinks/plugins/flutter_mpmediaplayer/ios`)
   - flutter_naver_map (from `.symlinks/plugins/flutter_naver_map/ios`)
   - geolocator_apple (from `.symlinks/plugins/geolocator_apple/ios`)
+  - kakaonavi (from `.symlinks/plugins/kakaonavi/ios`)
   - permission_handler_apple (from `.symlinks/plugins/permission_handler_apple/ios`)
 
 SPEC REPOS:
   trunk:
+    - KNSDK-UI
+    - LocationCocoaPod
     - NMapsMap
     - OrderedSet
 
@@ -43,6 +52,8 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/flutter_naver_map/ios"
   geolocator_apple:
     :path: ".symlinks/plugins/geolocator_apple/ios"
+  kakaonavi:
+    :path: ".symlinks/plugins/kakaonavi/ios"
   permission_handler_apple:
     :path: ".symlinks/plugins/permission_handler_apple/ios"
 
@@ -52,10 +63,13 @@ SPEC CHECKSUMS:
   flutter_mpmediaplayer: d6fda8913387edcbc6a1fd798087c693ac6937cb
   flutter_naver_map: 44743737c7c8645927d52fc1d704cfe7a0875f60
   geolocator_apple: cc556e6844d508c95df1e87e3ea6fa4e58c50401
+  kakaonavi: 2eeaf586562d9f8377031bacce0e7663e3aaa737
+  KNSDK-UI: edb7f994e54c97e932bc69aad9a82e49f7b90b85
+  LocationCocoaPod: a38f2c155e9b0f403fb01f13e9a76f5bcde9ab4b
   NMapsMap: a2593320fca2bb09e521c05b4dffee4da42e96ed
   OrderedSet: aaeb196f7fef5a9edf55d89760da9176ad40b93c
   permission_handler_apple: 44366e37eaf29454a1e7b1b7d736c2cceaeb17ce
 
-PODFILE CHECKSUM: ddd930128a51b4de5dcae538fb05b7669e161fdd
+PODFILE CHECKSUM: e1403ae779c5b957c6fef17918a7f8575c2d0fb1
 
 COCOAPODS: 1.11.3
