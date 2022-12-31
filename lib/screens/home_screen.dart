@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:ipad_carplay/widgets/map.dart';
-import 'package:ipad_carplay/widgets/youtube_music.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -14,7 +13,7 @@ class HomeScreen extends StatelessWidget {
             child: Row(
               children: const [
                 Expanded(child: MapView()),
-                YoutubeMusic(),
+                // YoutubeMusic(),
               ],
             ),
           ),
