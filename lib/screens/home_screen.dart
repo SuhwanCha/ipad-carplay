@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:ipad_carplay/map_bloc/map_bloc.dart';
 import 'package:ipad_carplay/widgets/kakao_navi.dart';
 
 import 'package:ipad_carplay/widgets/search.dart';
@@ -31,9 +33,28 @@ class HomeScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              Container(
-                height: 100,
-                color: Theme.of(context).colorScheme.primary.withOpacity(0.12),
+              BlocBuilder<MapBloc, MapState>(
+                builder: (context, state) {
+                  return Container(
+                    height: 100,
+                    color:
+                        Theme.of(context).colorScheme.primary.withOpacity(0.12),
+                    child: Row(
+                      children: [
+                        const SizedBox(width: 32),
+                        Text(
+                          '${state.remainTime ~/ 60}m ${state.remainTime % 60}s',
+                          style: Theme.of(context).textTheme.headlineLarge,
+                        ),
+                        const SizedBox(width: 30),
+                        Text(
+                          '${state.remainDistance / 1000}km',
+                          style: Theme.of(context).textTheme.headlineLarge,
+                        ),
+                      ],
+                    ),
+                  );
+                },
               )
             ],
           ),

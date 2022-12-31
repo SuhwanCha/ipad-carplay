@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:kakaonavi/bloc/navi_bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:ipad_carplay/map_bloc/map_bloc.dart';
 import 'package:kakaonavi/kakaonavi.dart';
 
 class Kakaonavi extends StatelessWidget {
@@ -14,7 +15,17 @@ class Kakaonavi extends StatelessWidget {
         Positioned.fill(
           child: Container(
             color: Colors.white,
-            child: KakaonaviView(bloc: bloc),
+            child: KakaonaviView(
+              bloc: bloc,
+              onLocationUpdate: (p0) {
+                context.read<MapBloc>().add(
+                      MapUpdated(
+                        remainDistance: p0.remainDistance,
+                        remainTime: p0.remainTime,
+                      ),
+                    );
+              },
+            ),
           ),
         ),
         Positioned(
